@@ -9,6 +9,8 @@ target_sources(core PRIVATE
         rounds/RoundHistory.cpp
         matching/SimpleMatching.cpp
         matching/HopcroftKarp.cpp
+        cover/KonigCover.cpp
+        cover/CriticalityAnalyzer.cpp
 )
 
 add_executable(core_demo main.cpp)
