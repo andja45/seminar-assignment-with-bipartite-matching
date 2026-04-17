@@ -5,6 +5,10 @@ target_include_directories(core PUBLIC
 )
 
 target_sources(core PRIVATE
+        graph/AllocationGraph.cpp
+        rounds/RoundHistory.cpp
+        matching/SimpleMatching.cpp
+        matching/HopcroftKarp.cpp
 )
 
 add_executable(core_demo main.cpp)
