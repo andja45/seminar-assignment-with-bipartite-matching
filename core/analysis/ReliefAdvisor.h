@@ -7,8 +7,7 @@
 #include "matching/MatchingResult.h"
 
 struct ReliefResult {
-    // unmatched studentId -> list of topicIds that would unlock their assignment
-    std::unordered_map<int, std::vector<int>> perStudent;
+    std::unordered_map<int, std::vector<int>> perStudent;   // (unmatched studentId, list of topicIds that would unlock their assignment)
     std::unordered_map<int, int> topicGain; // (topicId, num of student that could get assigned by it)
 };
 

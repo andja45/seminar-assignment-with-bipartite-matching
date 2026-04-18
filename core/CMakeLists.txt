@@ -10,8 +10,9 @@ target_sources(core PRIVATE
         matching/SimpleMatching.cpp
         matching/HopcroftKarp.cpp
         cover/KonigCover.cpp
-        cover/CriticalityAnalyzer.cpp
-        advisor/ReliefAdvisor.cpp
+        analysis/ReliefAdvisor.cpp
+        cover/DemandCoverAnalysis.cpp
+        analysis/MatchingFlexibility.cpp
 )
 
 add_executable(core_demo main.cpp)

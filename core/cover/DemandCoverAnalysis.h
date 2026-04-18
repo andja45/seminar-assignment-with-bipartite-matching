@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 #include "../graph/AllocationGraph.h"
-#include "../cover/KonigCover.h"
+#include "KonigCover.h"
 
 enum class DCALabel {
     Confirmed,  // high demand and in cover — König walk reached it; expanding it would benefit an unmatched student
