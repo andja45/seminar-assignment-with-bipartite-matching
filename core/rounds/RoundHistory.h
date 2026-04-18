@@ -5,8 +5,8 @@
 #include <utility>
 #include <unordered_map>
 #include <unordered_set>
-#include "Period.h"
-#include "../matching/MatchingResult.h"
+#include "ExamRound.h"
+#include "matching/MatchingResult.h"
 
 struct RoundHistory {
     std::vector<ExamRound> completedPeriods;

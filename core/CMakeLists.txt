@@ -11,6 +11,7 @@ target_sources(core PRIVATE
         matching/HopcroftKarp.cpp
         cover/KonigCover.cpp
         cover/CriticalityAnalyzer.cpp
+        advisor/ReliefAdvisor.cpp
 )
 
 add_executable(core_demo main.cpp)

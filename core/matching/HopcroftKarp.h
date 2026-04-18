@@ -2,7 +2,7 @@
 #define SEMINARALLOCATIONENGINE_HOPCROFTKARP_H
 
 #include "MatchingResult.h"
-#include "../graph/AllocationGraph.h"
+#include "graph/AllocationGraph.h"
 
 MatchingResult runHopcroftKarp(const AllocationGraph& graph);
 

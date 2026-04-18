@@ -2,8 +2,8 @@
 #define SEMINARALLOCATIONENGINE_CRITICALITYANALYZER_H
 
 #include <unordered_map>
-#include "../graph/AllocationGraph.h"
-#include "../matching/MatchingResult.h"
+#include "graph/AllocationGraph.h"
+#include "matching/MatchingResult.h"
 #include "KonigCover.h"
 
 enum class CoverCriticality {

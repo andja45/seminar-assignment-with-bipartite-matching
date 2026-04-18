@@ -1,10 +1,11 @@
 #include "SimpleMatching.h"
 #include <queue>
+#include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 
 // BFS algorithm on the bipartite preference graph
-static std::vector<int> findAugmentingPath(int start, const AllocationGraph& graph,
+std::vector<int> findAugmentingPath(int start, const AllocationGraph& graph,
     const std::unordered_map<int,int>& studentMatch, const std::unordered_map<int,int>& topicMatch, int& edgeTraversals) {
 
     std::unordered_map<int,int> parent; //(topicId, studentId)

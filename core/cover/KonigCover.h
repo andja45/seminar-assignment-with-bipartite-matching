@@ -3,8 +3,8 @@
 
 #include <unordered_set>
 #include <vector>
-#include "../graph/AllocationGraph.h"
-#include "../matching/MatchingResult.h"
+#include "graph/AllocationGraph.h"
+#include "matching/MatchingResult.h"
 
 struct CoverResult {
     std::unordered_set<int> coverStudents;
