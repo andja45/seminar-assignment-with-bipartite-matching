@@ -29,8 +29,8 @@ std::vector<int> findAugmentingPath(int start, const AllocationGraph& graph,
                 int topic = t;
                 while (topic != -1) {
                     int student = parent[topic];
-                    path.push_back(student);
                     path.push_back(topic);
+                    path.push_back(student);
                     topic = studentMatch.at(student);
                 }
                 std::reverse(path.begin(), path.end());
