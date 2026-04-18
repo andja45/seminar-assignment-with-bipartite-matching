@@ -13,6 +13,7 @@ target_sources(core PRIVATE
         analysis/ReliefAdvisor.cpp
         cover/DemandCoverAnalysis.cpp
         analysis/MatchingFlexibility.cpp
+        examples/AllocationExamples.cpp
 )
 
 add_executable(core_demo main.cpp)
