@@ -1,8 +1,8 @@
 #include "MatchingFlexibility.h"
 #include "matching/SimpleMatching.h"
 
-AssignmentNecessityResult computeNecessity(AllocationGraph& graph, const MatchingResult& matching) {
-    AssignmentNecessityResult result;
+MatchingFlexibilityResult computeFlexibility(AllocationGraph& graph, const MatchingResult& matching) {
+    MatchingFlexibilityResult result;
 
     auto studentMatchCopy= matching.studentMatch;
     auto topicMatchCopy= matching.topicMatch;
@@ -29,10 +29,10 @@ AssignmentNecessityResult computeNecessity(AllocationGraph& graph, const Matchin
         auto path = findAugmentingPath(s, graph, studentMatchCopy, topicMatchCopy, dummy);
 
         if (path.empty()) {
-            result.studentLevel[s] = NecessityLevel::Forced;
+            result.studentLevel[s] = FlexibilityLevel::Forced;
             forcedCount++;
         } else {
-            result.studentLevel[s] = NecessityLevel::Flexible;
+            result.studentLevel[s] = FlexibilityLevel::Flexible;
             // path layout: [s, t0, s1, t1, ..., sN, tFree] — last node is the alternative topic
             result.alternativeTopics[s].push_back(path.back());
         }
@@ -42,7 +42,7 @@ AssignmentNecessityResult computeNecessity(AllocationGraph& graph, const Matchin
     }
 
     int totalMatched = (int)result.studentLevel.size();
-    result.necessityIndex = (totalMatched > 0)
+    result.flexibilityIndex = (totalMatched > 0)
         ? (float)forcedCount / (float)totalMatched
         : 0.0f;
 
