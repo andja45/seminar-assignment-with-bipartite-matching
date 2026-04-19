@@ -24,12 +24,12 @@ static ImVec2 lerp(ImVec2 a, ImVec2 b, float t) {
     return {a.x + (b.x-a.x)*t, a.y + (b.y-a.y)*t};
 }
 
-static void arrowHead(ImDrawList* dl, ImVec2 from, ImVec2 to, ImU32 col, float size = 9.f) {
-    ImVec2 tip = lerp(from, to, 0.62f);
+static void arrowHead(ImDrawList* dl, ImVec2 from, ImVec2 to, ImU32 col, float nodeR, float size = 16.f) {
     float dx = to.x - from.x, dy = to.y - from.y;
     float len = sqrtf(dx*dx + dy*dy);
     if (len < 1.f) return;
     float nx = dx/len, ny = dy/len, px = -ny, py = nx;
+    ImVec2 tip = {to.x - nx*nodeR, to.y - ny*nodeR};
     ImVec2 base = {tip.x - nx*size, tip.y - ny*size};
     dl->AddTriangleFilled(tip,
         {base.x + px*size*0.45f, base.y + py*size*0.45f},
@@ -121,7 +121,7 @@ void renderCanvas(AppState& state, CanvasState& canvas, ImVec2 topLeft, ImVec2 s
         } else if (isAnim) {
             ImU32 ac = AppTheme::col(AppTheme::animPath);
             dl->AddLine(sp, tp, ac, AppTheme::animThick);
-            arrowHead(dl, isAnimFwd ? sp : tp, isAnimFwd ? tp : sp, ac);
+            arrowHead(dl, isAnimFwd ? sp : tp, isAnimFwd ? tp : sp, ac, R);
         } else if (isMatched) {
             ImU32 mc = animActive
                 ? AppTheme::col(AppTheme::animDimMatch)
@@ -201,7 +201,7 @@ void renderCanvas(AppState& state, CanvasState& canvas, ImVec2 topLeft, ImVec2 s
         else
             snprintf(stepLabel, sizeof stepLabel, "Augmentation %d / %d", astep+1, total);
         ImVec2 ts = ImGui::CalcTextSize(stepLabel);
-        dl->AddText({topLeft.x + size.x/2.f - ts.x/2.f, br.y - ts.y - 8.f},
+        dl->AddText({topLeft.x + size.x/2.f - ts.x/2.f, topLeft.y + 8.f},
                     AppTheme::col(AppTheme::animPath), stepLabel);
     }
 
