@@ -28,7 +28,7 @@ DCAResult computeDCA(const AllocationGraph& graph, const CoverResult& cover) {
 
     int confirmed = 0, resolved = 0;
     for (int t : graph.getByType(NodeType::Topic)) {
-        bool highDemand = demand[t] >= threshold;
+        bool highDemand = demand[t] > threshold;
         bool inCover = cover.coverTopics.count(t) > 0;
 
         DCALabel label;
