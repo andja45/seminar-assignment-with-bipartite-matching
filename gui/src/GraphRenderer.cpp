@@ -260,21 +260,25 @@ void renderCanvas(AppState& state, CanvasState& canvas, ImVec2 topLeft, ImVec2 s
         state.draggedNode = -1;
 
     if (ImGui::IsMouseClicked(ImGuiMouseButton_Right)) {
+        bool graphChanged = false;
         if (hoveredNode != -1 && state.graph.hasNode(hoveredNode)) {
             if (state.pendingPrefFrom == hoveredNode) state.pendingPrefFrom = -1;
             state.positions.erase(hoveredNode);
             state.graph.removeNode(hoveredNode);
+            graphChanged = true;
         } else {
             for (auto& pref : state.graph.preferences()) {
                 if (ptSegDist2(mouse, spos(pref.student), spos(pref.topic)) < 36.f) {
                     state.graph.removePreference(pref.student, pref.topic);
+                    graphChanged = true;
                     break;
                 }
             }
         }
+        if (graphChanged) state.clearResults();
     }
 
-    if (hoveredNode == -1) { ImGui::PopID(); return; }
+    if (hoveredNode == -1 || !state.graph.hasNode(hoveredNode)) { ImGui::PopID(); return; }
     auto& hn = state.graph.nodes().at(hoveredNode);
     bool isStu = hn.type == NodeType::Student;
 

@@ -59,6 +59,7 @@ struct AppState {
     void runAnalysis();
     void loadExample(int which);
     void clearAll();
+    void clearResults();
     void tickAnimation(float dt);
     void autoPlaceNode(int id, NodeType type, float canvasW, float canvasH);
 

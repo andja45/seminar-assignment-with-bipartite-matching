@@ -51,6 +51,20 @@ void AppState::loadExample(int which) {
         autoPlaceNode(id, node.type, 1.f, 1.f);
 }
 
+void AppState::clearResults() {
+    auto resetCanvas = [](CanvasState& c) {
+        c.result = {};
+        c.cover = {};
+        c.dca = {};
+        c.relief = {};
+        c.flexibility = {};
+        c.animState = AnimState::Idle;
+        c.animStep = 0;
+    };
+    resetCanvas(topCanvas);
+    resetCanvas(botCanvas);
+}
+
 void AppState::clearAll() {
     graph = {};
     history = {};
