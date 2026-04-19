@@ -2,7 +2,7 @@
 
 Interactive tool for solving the seminar topic assignment problem using bipartite matching, with step-by-step algorithm animations and a split-canvas comparator. Models students and topics as a bipartite graph and finds a **maximum matching**, then layers four analyses on top: **minimum vertex cover, demand pressure classification, assignment necessity, and relief advising**.
 
-A professor enters students, topics, and ranked preferences. The engine finds the assignment that matches as many students as possible, then answers three practical questions: which topics are structural bottlenecks, which student assignments are forced versus swappable, and which topics each unmatched student should add to their preferences to get assigned.
+A professor enters students, topics, and ranked preferences. The engine finds the assignment that matches as many students as possible, then answers three practical questions: *which topics are structural bottlenecks, which student assignments are forced versus swappable*, and *which topics each unmatched student should add to their preferences to get assigned.*
 
 ![split-view.png](assets/split-view.png)
 
