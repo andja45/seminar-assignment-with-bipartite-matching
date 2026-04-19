@@ -91,12 +91,12 @@ Classifies each topic by combining its **demand** (how many students listed it) 
 
 > **Absorption rate** = `resolved / (confirmed + resolved)` — the fraction of high-demand topics the matching successfully handled. 1.0 means every contested topic was resolved; 0.0 means every contested topic remains a bottleneck. Undefined when no high-demand topics exist.
 
-### Assignment Necessity
+### Matching Flexibility
 
 After finding a maximum matching, asks for each matched pair: *is there any other maximum matching where this student gets a different topic?* The professor can use this to quickly see which students can be accommodated if they object to their assignment, and which ones cannot be moved without reducing the total number of matched students.
 
 - **Forced** — every maximum matching of this graph assigns this student to this topic. There is no alternative; moving them would cost a matched pair somewhere else.
-- **Flexible** — the matching could look different and still be maximum. This student could be reassigned without any loss.
+- **Flexible** — the matching could look different and still be maximum. This student could be reassigned without any loss. In other words, the optimal solution is not unique.
 
 > **How it is checked for one pair (S → T):**
 >
