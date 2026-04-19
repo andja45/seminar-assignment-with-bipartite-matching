@@ -33,8 +33,8 @@ MatchingFlexibilityResult computeFlexibility(AllocationGraph& graph, const Match
             forcedCount++;
         } else {
             result.studentLevel[s] = FlexibilityLevel::Flexible;
-            // path layout: [s, t0, s1, t1, ..., sN, tFree] — last node is the alternative topic
-            result.alternativeTopics[s].push_back(path.back());
+            // path layout: [s, t0, s1, t1, ..., sN, tFree] — after augmentation s lands on t0 (path[1]); tFree (path.back()) is absorbed by sN
+            result.alternativeTopics[s].push_back(path[1]);
         }
 
         studentMatchCopy[s] = t;
