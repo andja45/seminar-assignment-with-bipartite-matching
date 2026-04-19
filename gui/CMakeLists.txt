@@ -21,6 +21,11 @@ list(TRANSFORM IMGUI_SOURCES PREPEND ${imgui_SOURCE_DIR}/)
 
 add_executable(gui_app
         ${IMGUI_SOURCES}
+        src/main.cpp
+        src/App.cpp
+        src/AppState.cpp
+        src/AppPanels.cpp
+        src/GraphRenderer.cpp
 )
 
 target_include_directories(gui_app PRIVATE
